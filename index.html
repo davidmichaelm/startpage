@@ -36,19 +36,6 @@
        updateClock();
        window.setInterval("updateClock()", 1000);
      }
-
-     $(document).ready(function(){
-       $.ajax({
-       url:'https://dailyverses.net/getdailyverse.ashx?language=niv&isdirect=1',
-       dataType: 'JSONP',
-       success:function(json){
-       $(".votd").prepend(json.html);
-       $('.dailyVerses a').removeAttr("href")
-       }
-       });
-     });
-
-
    </script>
   </head>
  <body onLoad="initClock()">
@@ -75,8 +62,6 @@
        <a href="http://maps.google.com"><img src="maps.png"></a>
        <a href="http://steampowered.com"><img src="steam.png"></a>
      </div>
-
-     <div class="votd"></div>
 
    </div>
  </body>
