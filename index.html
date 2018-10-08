@@ -1,0 +1,170 @@
+<html>
+ <meta charset="UTF-8">
+ <head>
+   <title>New Tab</title>
+   <style>@import url('https://fonts.googleapis.com/css?family=Inconsolata');</style>
+   <script src="jquery-3.2.1.min.js"></script>
+   <script>
+     Number.prototype.pad = function(n) {
+      for (var r = this.toString(); r.length < n; r = 0 + r);
+      return r;
+    };
+
+      function updateClock() {
+        var now = new Date();
+        var sec = now.getSeconds(),
+          min = now.getMinutes(),
+          hou = now.getHours(),
+          mo = now.getMonth(),
+          dy = now.getDate(),
+          yr = now.getFullYear(),
+          ampm = "am";
+
+        if (hou > 12) {
+          hou = hou - 12;
+          ampm = "pm"
+        }
+
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var tags = ["mon", "d", "y", "h", "m", "s", "ampm"],
+          corr = [months[mo], dy, yr, hou, min.pad(2), sec.pad(2), ampm];
+        for (var i = 0; i < tags.length; i++)
+         document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+      }
+
+     function initClock() {
+       updateClock();
+       window.setInterval("updateClock()", 1000);
+     }
+
+     $(document).ready(function(){
+       $.ajax({
+       url:'https://dailyverses.net/getdailyverse.ashx?language=niv&isdirect=1',
+       dataType: 'JSONP',
+       success:function(json){
+       $(".votd").prepend(json.html);
+       $('.dailyVerses a').removeAttr("href")
+       }
+       });
+     });
+
+
+   </script>
+  </head>
+ <body onLoad="initClock()">
+   <div class="container">
+
+     <div class="clock">
+       <a id="mon">January</a>
+       <a id="d">1</a>,
+       <a id="y">0</a><br />
+       <a id="h">12</a>:<a id="m">00</a>:<a id="s">00</a>
+       <a id="ampm">AM</a>
+     </div>
+
+     <div class="box">
+       <a href="http://youtube.com"><img src="youtube.png"></a>
+       <a href="http://smile.amazon.com"><img src="amazon.png"></a>
+       <a href="http://netflix.com"><img src="netflix.png"></a>
+       <a href="http://twitch.tv"><img src="twitch.png"></a>
+       <a href="http://feedly.com"><img src="feedly.png"></a>
+       <a href="http://facebook.com"><img src="fb.png"></a>
+       <a href="http://reddit.com"><img src="reddit.png"></a>
+       <a href="http://boardgamegeek.com"><img src="bgg.png"></a>
+
+       <a href="http://maps.google.com"><img src="maps.png"></a>
+       <a href="http://steampowered.com"><img src="steam.png"></a>
+     </div>
+
+     <div class="votd"></div>
+
+   </div>
+ </body>
+
+ <style>
+
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+   html, body {
+    font-family: Roboto !important;
+    font-size: 16px !important;
+  }
+
+   body {
+     margin: 0;
+     background-color: #2A313B;
+     color: #b5b5a4;
+     overflow:hidden;
+   }
+
+   .clock {
+    font-family: 'Inconsolata', monospace;
+  	font-size: 4em;
+  	font-style: normal;
+  	font-variant: normal;
+  	font-weight: 400;
+    text-align: center;
+    margin: 75px;
+    margin-bottom: 80px;
+   }
+
+   .container {
+     display: flex;
+     flex-direction: column;
+     align-content: center;
+     justify-content: center;
+     margin-top: 50px;
+     width: 100%;
+   }
+
+   .box {
+     display: flex;
+     flex-flow: row wrap;
+     align: center;
+     justify-content: center;
+     margin: 2%;
+   }
+
+   img {
+     margin: 50px;
+     margin-top: 0;
+     margin-bottom: 40px;
+     width: 128px;
+     height: 128px;
+   }
+
+   .box > a {
+     display: inline-block;
+     vertical-align: middle;
+     -webkit-transform: perspective(1px) translateZ(0);
+     transform: perspective(1px) translateZ(0);
+     box-shadow: 0 0 1px transparent;
+     -webkit-transition-duration: 0.3s;
+     transition-duration: 0.3s;
+     -webkit-transition-property: transform;
+     transition-property: transform;
+     -webkit-transition-timing-function: ease-out;
+     transition-timing-function: ease-out;
+   }
+
+   .box > a:hover, .box > a:focus, .box > a:active {
+     -webkit-transform: translateY(-20px);
+     transform: translateY(-20px);
+   }
+
+   .votd {
+     text-align: center;
+     font-family: 'Inconsolata', monospace;
+   	 font-size: 1.5em;
+   	 font-style: normal;
+   	 font-variant: normal;
+   	 font-weight: 400;
+     text-align: center;
+     margin: 35px;
+   }
+ </style>
+
+</html>
