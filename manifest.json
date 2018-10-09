@@ -36,9 +36,8 @@
           "images/steam.png",
           "images/twitch.png",
           "images/youtube.png",
-          "data/index.html",
-          "data/jquery-3.2.1.min",
-          "data/start.js"
+          "index.html",
+          "start.js" 
       ]
   
   }

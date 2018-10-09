@@ -3,40 +3,7 @@
  <head>
    <title>New Tab</title>
    <style>@import url('https://fonts.googleapis.com/css?family=Inconsolata');</style>
-   <script src="jquery-3.2.1.min.js"></script>
-   <script>
-     Number.prototype.pad = function(n) {
-      for (var r = this.toString(); r.length < n; r = 0 + r);
-      return r;
-    };
-
-      function updateClock() {
-        var now = new Date();
-        var sec = now.getSeconds(),
-          min = now.getMinutes(),
-          hou = now.getHours(),
-          mo = now.getMonth(),
-          dy = now.getDate(),
-          yr = now.getFullYear(),
-          ampm = "am";
-
-        if (hou > 12) {
-          hou = hou - 12;
-          ampm = "pm"
-        }
-
-        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        var tags = ["mon", "d", "y", "h", "m", "s", "ampm"],
-          corr = [months[mo], dy, yr, hou, min.pad(2), sec.pad(2), ampm];
-        for (var i = 0; i < tags.length; i++)
-         document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
-      }
-
-     function initClock() {
-       updateClock();
-       window.setInterval("updateClock()", 1000);
-     }
-   </script>
+   <script src="start.js"></script>
   </head>
  <body onLoad="initClock()">
    <div class="container">
@@ -50,17 +17,17 @@
      </div>
 
      <div class="box">
-       <a href="http://youtube.com"><img src="youtube.png"></a>
-       <a href="http://smile.amazon.com"><img src="amazon.png"></a>
-       <a href="http://netflix.com"><img src="netflix.png"></a>
-       <a href="http://twitch.tv"><img src="twitch.png"></a>
-       <a href="http://facebook.com"><img src="fb.png"></a>
-       <a href="http://twitter.com"><img src="twitter.png"></a>
-       <a href="http://reddit.com"><img src="reddit.png"></a>
-       <a href="http://boardgamegeek.com"><img src="bgg.png"></a>
-
-       <a href="http://maps.google.com"><img src="maps.png"></a>
-       <a href="http://steampowered.com"><img src="steam.png"></a>
+       <a href="http://youtube.com"><img src="images/youtube.png"></a>
+       <a href="http://smile.amazon.com"><img src="images/amazon.png"></a>
+       <a href="http://netflix.com"><img src="images/netflix.png"></a>
+       <a href="http://twitch.tv"><img src="images/twitch.png"></a>
+       <a href="http://facebook.com"><img src="images/fb.png"></a>
+       <a href="http://twitter.com"><img src="images/twitter.png"></a>
+       <a href="http://reddit.com"><img src="images/reddit.png"></a>
+       <a href="http://boardgamegeek.com"><img src="images/bgg.png"></a>
+       <a href="http://gmail.com"><img src="images/gmail.png"></a>
+       <a href="http://maps.google.com"><img src="images/maps.png"></a>
+       <a href="http://steampowered.com"><img src="images/steam.png"></a>
      </div>
 
    </div>
