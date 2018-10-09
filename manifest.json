@@ -1,0 +1,45 @@
+{
+
+    "manifest_version": 2,
+    "name": "startpage",
+    "version": "1.5",
+  
+    "description": "It's a startpage!",
+  
+    "permissions": [
+      "alarms"
+    ],
+  
+    "applications": {
+      "gecko": {
+        "id": "davemarquardt@gmail.com"
+      }
+    },
+  
+    "chrome_url_overrides": {
+      "newtab": "index.html"
+    },
+  
+    "chrome_settings_overrides": {
+      "homepage": "index.html"
+    },
+  
+    "web_accessible_resources": [
+          "images/amazon.png",
+          "images/bgg.png",
+          "images/fb.png",
+          "images/feedly.png",
+          "images/gmail.png",
+          "images/maps.png",
+          "images/netflix.png",
+          "images/reddit.png",
+          "images/steam.png",
+          "images/twitch.png",
+          "images/youtube.png",
+          "data/index.html",
+          "data/jquery-3.2.1.min",
+          "data/start.js"
+      ]
+  
+  }
+  
